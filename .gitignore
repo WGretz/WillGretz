@@ -1,0 +1,4 @@
+_site/
+.sass-cache/
+config/deploy.rb
+.DS_Store

@@ -1,0 +1,12 @@
+---
+title: Introductions
+layout: post
+---
+
+My site has gone through several incarnations. Hundreds if you count the sites I used to make when I first began learning html in middle school.  I've always had problems finishing them and commiting to a design.  
+
+Once I began learning to program I tried several times to build a blog of my own design.  I'd always get close to something I liked and then would decide I wanted to try a new technology or add a new feature to it and so I never got anything finished with it.  Recently I decided to learn how [Wordpress](http://wordpress.com) worked in an attempt to build something for a few friends projects. Several things got in the way of finishing learning wordpress and I decided I needed a blog now so I can share with the world, or atleast so I don't forget what I learned. And I decided instead of trying to adapt my rails site into a wordpress template Instead of screwing around trying to convert html pages into a wordpress template and learn the ins and outs of how wordpress structures its files.
+
+This project recently jumped up in priority when I began working on several different projects that I decided I wanted to keep record of the process I went through. Hopefully to help others but also so that if I need to repeat the process later I will have a record of how I went about doing it originally.
+
+

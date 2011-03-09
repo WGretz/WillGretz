@@ -1,0 +1,17 @@
+---
+layout: post
+---
+Recently our company decided to switch to Engine Yards App Cloud to host our rails application.  In order to get non standard applications, in our case applications like imagemagick and pdftk you have to utilize a systems integration framework called Chef.  Chef was created to take some of the effort out of initializing a blank server.
+
+In order to sharpen our chef chops we decided to take advantage of the free micro instances.  We chose to run our app on an ubuntu lucid server.  The first thing we needed to install were some of the libraries needed to compile certain ruby features as well as git.
+
+{% highlight bash %}apt-get install git-core build-essential zlib1g-dev libssl-dev \
+ libreadline5-dev
+apt-get install ruby{% endhighlight %}
+
+Next we installed Wayne Seguin's awesome ruby version manager so that we could easily install ruby 1.9.2.
+
+{% highlight bash %}
+bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+rvm install 1.9.2
+{% endhighlight %}
