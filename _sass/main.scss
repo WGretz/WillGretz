@@ -3,8 +3,8 @@
 @import "compass/layout/sticky-footer";
 @import "compass/reset/utilities";
 
-@include sticky_footer(4em, ".wrapper","footer",".push");
 @include reset-html5;
+@include global-reset;
 
 @include font-face('mizike', font-files("/fonts/mizike.woff", woff, "/fonts/mizike.ttf", truetype, "/fonts/mizike.svg#webfontKnyf1ui5", svg));
 
@@ -19,13 +19,46 @@
 
 $link-color: #A1C820;
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0px;
   padding: 0px;
   background: #666;
   font-size: 13px;
+  font-family: 'PT Sans';
+  height: 100%;
 }
+
+h2{
+  font-size: 1.6em;
+  margin: 5px;
+}
+
+footer{
+  background: #000;
+  clear: both;
+  margin-top: 5px;
+  color: #fff;
   
+  .elem{
+    @include grid(4);
+  }
+  
+  .elemfirst{
+    @include grid(4,true);
+  } 
+  
+  p{
+    margin: 10px auto 0;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid grey;
+  }
+}
+
 header {
   background: url('/images/banner.png');
   height: 100px;
@@ -78,11 +111,9 @@ header {
 
 .wrapper {
   width: 978px;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -4em;
-  @include radial-gradient(color_stops(#E1FFD6,#fff), top center )
-  
+  margin: 0 auto;
+  @include radial-gradient(color_stops(#E1FFD6,#fff), top center );
+  min-height: 100%;
 }
 
 h1 {
@@ -101,6 +132,7 @@ pre{
   color: #FFF;
 }
 
+
 #content{
   @include grid(9,true);
   font-size: 15px;
@@ -108,6 +140,125 @@ pre{
 
 .sidebar-module{
   @include grid(3);
+}
+
+#featured-projects{
+  @include grid(6,true);
+}
+
+#recent-articles{
+  @include grid(6);
+}
+
+.project-preview{
+  width: 460px;
+  height: 270px;
+  background: #999;
+  margin: 0px auto;
+  position: relative;
+}
+
+.project-img{
+  width: 460;
+  height: 270px;
+  position: absolute;
+}
+
+#intro-spacer-one{
+  @include grid(2,true);
+}
+
+#intro-spacer-two{
+  @include grid(2);
+}
+
+#intro{
+  @include grid(8);
+  font-size: 22px;
+  text-align: justify;
+  line-height: 1.1em;
+  padding-bottom: 7px 5px;
+  
+} 
+
+.name {
+  font-family: Mizike;
+  font-size: 1.1em;
+}
+
+.project-title{
+  position: absolute;
+  background: rgba(255,255,255,.8);
+  bottom: 20px;
+  right: 0;
+  width: 80%;
+  font-size: 16px;
+  font-family: Mizike;
+  line-height: 1em;
+  text-align: right;
+}
+
+#featured-projects{
+  
+  font-size: 16px;
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  a:hover {
+    color: #0F0;
+  }
+  
+  .project-title {
+    
+    h2{
+      margin: 0.3em 5px;
+    }
+    
+    span{
+      margin: 0 5px;
+    }
+    
+  }
+  
+}
+
+.clear{
+  clear: both;
+}
+
+#recent-articles{
+  font-size: 16px;
+}
+
+#recent-articles ul{
+  list-style-type: disc;
+  margin: 0 20px;
+}
+
+#most-recent{
+  margin-bottom: 5px;
+  
+  h2{
+   font-size: 36px;
+   margin: 5px;
+  }
+  
+  .byline {
+    color: #999;
+  }
+  
+}
+
+#content-column{
+  @include grid(9, true);
+  
+}
+
+#disqus_thread {
+  margin: 7px !important ;
 }
 
 .hll { background-color: #ffffcc }

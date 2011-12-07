@@ -65,10 +65,10 @@ private
 
 def updateConfig(rep)
   lines = IO.readlines("_config.yml");
-  lines[-1] = rep
+  lines[0] = rep
   File.open("_config.yml","w") do |file|
     lines.each do |line|
-      file.write(line)
+      file.puts(line)
     end
   end
 end

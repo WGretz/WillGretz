@@ -1,3 +1,2 @@
 env: dev
-pygments: true
-env: prod
+permalink: pretty
