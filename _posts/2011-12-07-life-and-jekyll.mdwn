@@ -1,0 +1,13 @@
+---
+layout: post
+title: Life & Jekyll
+---
+So it's been 8 months since I last wrote an article.  Life got a little hectic. The company I was working for found itself with two large projects back to back.  When I originally got hired on we were just starting out upgrading there application from Rails 1.2.6 to Rails 3.  Besides just making a huge jump in the framework we were also moving some of our data from Postgres to MongoDB.  Right after this project ended we began adding functionality so that our software met government requirements so that our customers could get some stimulous checks.  Needless to say there ended up being several 80 hour weeks in the end.
+
+Well now that all that stuff is over I am finally getting back to working on my own stuff in my off time.  I decided it was time to get this site more up to date.  I'm still a big fan of Jekyll at this point and have been looking in to how to further customize it so that it meets my needs. The first thing I've implemented in the past couple of days is to remove the trailing slashes from urls.  When I first built this blog I really liked the permalink style "pretty".  But later on I realized all the links I was looking at had a trailing slash that I was not fond of.  After a little bit of research I discovered a property in apache called multiview. I found this [article](http://paulstamatiou.com/how-to-wordpress-to-jekyll) very useful when trying to implement multiview in Jekyll. I had to add this line to my .htaccess file: 
+
+{% highlight apache %}
+Options +MultiViews
+{% endhighlight %}
+
+At first I tried to just create an .htaccess file, but every time I regenerated the site the .htaccess file was not present in the newly compiled version.  One workaround I found was to name the file with out a period in front of the file and instead in the yaml for the file set the permalink to .htaccess. Another thing I learned in the process of updating this site is that code highlighting in Jekyll version 0.11.0 does not work with Liquid version 2.3.0.

@@ -4,7 +4,7 @@ end
 
 desc 'Deploy jekyll site'
 task :deploy =>["env:prod",:compile] do
-  system "cap deploy"
+  sh 'rsync -rtzh --progress --delete _site/ soulmonkey23@willgretz.com:~/willgretz.com/current'
 end
 
 namespace :compass do  

@@ -15,7 +15,7 @@
     margin-left: 30px;
   }
 }
-
+@include sticky-footer(42px, ".wrapper", ".push", "footer");
 
 $link-color: #A1C820;
 
@@ -27,7 +27,7 @@ body {
   margin: 0px;
   padding: 0px;
   background: #666;
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'PT Sans';
   height: 100%;
 }
@@ -38,24 +38,18 @@ h2{
 }
 
 footer{
-  background: #000;
-  clear: both;
-  margin-top: 5px;
-  color: #fff;
-  
-  .elem{
-    @include grid(4);
+  div {
+    background: #000;
+    color: #fff;
+    height: 42px;
+    width: 978px;
+    margin-right: auto;
+    margin-left : auto;
   }
-  
-  .elemfirst{
-    @include grid(4,true);
-  } 
-  
   p{
-    margin: 10px auto 0;
+    margin: 0px;
     padding: 10px;
     text-align: center;
-    border-top: 1px solid grey;
   }
 }
 
@@ -111,9 +105,13 @@ header {
 
 .wrapper {
   width: 978px;
-  margin: 0 auto;
-  @include radial-gradient(color_stops(#E1FFD6,#fff), top center );
-  min-height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  background: #fff;
+}
+
+.push {
+  clear: both;
 }
 
 h1 {
@@ -140,6 +138,11 @@ pre{
 
 .sidebar-module{
   @include grid(3);
+  
+  h2 {
+    margin: 0px 0px 5px;
+  }
+  
 }
 
 #featured-projects{
