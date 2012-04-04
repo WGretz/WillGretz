@@ -1,5 +1,6 @@
 ---
 layout: default
+title: blog
 ---
 <div id="content-column">
   <div id="most-recent">
@@ -10,24 +11,4 @@ layout: default
     <p><a href="{{post.url}}#disqus_thread">Comments</a></p>
     {% endfor %}
   </div>
-</div>
-<div class="sidebar-module">
-  <h2>Recent Posts</h2>
-  <ul>
-  {% for post in site.nonprojectposts %}
-    <li><a href="{{post.url}}">{{post.title}}</a><br />
-      <span>{{post.date | date: "%B %e, %Y" }}</li>
-  {% endfor %}
-  </ul>
-  
-  <h2>Social Media</h2>
-  <a href="https://plus.google.com/115874712489676710214/about" target="_blank"><img src="/images/google_32.png"></a>
-  <a href="https://twitter.com/willgretz" target="_blank"><img src="/images/twitter_32.png"></a>
-  <a href="https://facebook.com/willgretz" target="_blank"><img src="/images/facebook_32.png"></a>
-  <a href="https://www.linkedin.com/in/willgretz" target="_blank"><img src="/images/linkedin_32.png"></a>
-  <a href="https://github.com/wgretz" target="_blank"><img src="/images/github_32.png"></a>
-
-  <h2>Project Euler</h2>
-  <img src="http://projecteuler.net/profile/WillGretz.png">
-  <img src="http://projecteuler.net/profile/WillGretzTcl.png">
 </div>

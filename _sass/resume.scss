@@ -1,0 +1,53 @@
+#resume {
+  margin: 10px;
+  font-size: 15px;
+  font-family: myriad-pro, helvetica;
+  li {
+    list-style-type: disc;
+    margin-bottom: 3px;
+  }
+  ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: myriad-pro, helvetica;
+    font-size: 35px;
+    margin: 0px 0px 5px;
+  }
+  p {
+    margin: 0px 0px 5px
+  }
+  h2 {
+    margin: 0px 0px 5px;
+    font-size: 25px;
+  }
+  h3 {
+    margin: 0px 0px 5px;
+    font-size: 20px;
+    span {
+      font-size: 15px;
+    }
+    .location{
+      display: inline-block;
+      font-style: italic;
+    }
+    .date {
+      padding: 3px;
+      float: right;
+    }
+  }
+  .extra-space {
+    margin-bottom: 20px
+  }
+  #technologies-sidebar {
+    width: 250px;
+    float: left;
+    h3 {
+      font-size: 18px;
+    }
+  }
+  #resume-body {
+    margin-left: 250px;
+  }
+}

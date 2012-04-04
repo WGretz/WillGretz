@@ -10,12 +10,5 @@
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 </div>
-<div class="sidebar-module">
-<h2> Recent Posts </h2>
-{% for post in site.posts limit:5 %}
-  <li>{{post.date | date_to_string}} - <a href="{{post.url}}">{{post.title}}</a></li>
-{% endfor %}
-<div id="popularthreads" class="dsq-widget"><h2 class="dsq-widget-title">Popular Threads</h2><script type="text/javascript" src="http://wgretztestblog.disqus.com/popular_threads_widget.js?num_items=5"></script></div>
-</div>
-  
+{% include sidebar.html %}
 {% include footer.html %}

@@ -1,5 +1,8 @@
 {% include header-doc.html %}
-<title>Will Gretz :: {{title}}</title>
+<title>Will Gretz</title>
 {% include header-body.html %}
 {{content}}
+{% unless page.hide_sidebar %}
+  {% include sidebar.html %}
+{% endunless %}
 {% include footer.html %}

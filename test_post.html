@@ -1,0 +1,164 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<form accept-charset="UTF-8" action="http://snapleads-staging.heroku.com/leads" class="new_lead" id="new_lead" method="post">
+        <input id="lead_offer_event_id" name="lead[offer_event_id]" type="hidden">
+        <input id="lead_email_prospect_id" name="lead[email_prospect_id]" type="hidden">
+        <input id="lead_offer_id" name="lead[offer_id]" type="hidden" value="1">
+        <div class="field" id="first_name">
+          <label for="lead_first_name">First name</label> <span class="field_with_errors"></span><br>
+          <input id="lead_first_name" name="lead[first_name]" size="30" type="text">
+        </div>
+        <div class="field" id="last_name">
+          <label for="lead_last_name">Last name</label> <span class="field_with_errors"></span><br>
+          <input id="lead_last_name" name="lead[last_name]" size="30" type="text">
+        </div>
+        <div class="field" id="phone">
+          <label for="lead_phone">Phone</label> <span class="field_with_errors"></span><br>
+          <input id="lead_phone" name="lead[phone]" size="30" type="text">
+        </div>
+        <div class="field" id="email">
+          <label for="lead_email">Email</label> <span class="field_with_errors"></span><br>
+          <input id="lead_email" name="lead[email]" size="30" type="text">
+        </div>
+        <div class="field" id="street">
+          <label for="lead_street">Street</label> <span class="field_with_errors"></span><br>
+          <input id="lead_street" name="lead[street]" size="30" type="text">
+        </div>
+        <div class="field" id="city">
+          <label for="lead_city">City</label> <span class="field_with_errors"></span><br>
+          <input id="lead_city" name="lead[city]" size="30" type="text">
+        </div>
+        <div class="field" id="state">
+          <label for="lead_state">State</label> <span class="field_with_errors"></span><br>
+          <input id="lead_state" name="lead[state]" size="30" type="text">
+        </div>
+        <div class="field" id="zip">
+          <label for="lead_zip">Zip</label> <span class="field_with_errors"></span><br>
+          <input id="lead_zip" name="lead[zip]" size="30" type="text">
+        </div>
+      <input name="commit" type="submit" value="Submit">
+  </form>
+  <script type="text/javascript" charset="utf-8">
+    function getQueryString() {
+      var result = {}, queryString = location.search.substring(1),
+          re = /([^&=]+)=([^&]*)/g, m;
+
+      while (m = re.exec(queryString)) {
+        result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+      }
+
+      return result;
+    }
+
+    function snapleads_load() {
+      qs = getQueryString()
+      var offer_event = qs["oe"];
+      var prospect_id = qs["pi"];
+      img = document.createElement('img');
+      src = "http://snapleads-staging.heroku.com/offers/1/view?"
+      if (offer_event) {
+        $('#lead_offer_event_id').val( offer_event );
+        src += "oe="+offer_event
+      } else if (prospect_id) {
+        $('#lead_email_prospect_id').val( prospect_id );
+        src += "pi="+prospect_id
+      } else {
+      }
+      img.setAttribute("src",src)
+      set_form_values(qs)
+      set_form_errors(qs)
+      $("#new_lead").submit(function(event){
+        errors = false
+        a = $("#first_name").find(".field_with_errors")
+        if ( $.trim($("#lead_first_name").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+        a = $("#last_name").find(".field_with_errors")
+        if ( $.trim($("#lead_last_name").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        a = $("#phone").find(".field_with_errors")
+        if ( $.trim($("#lead_phone").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        a = $("#email").find(".field_with_errors")
+        if ( $.trim($("#lead_email").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        a = $("#street").find(".field_with_errors")
+        if ( $.trim($("#lead_street").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        a = $("#city").find(".field_with_errors")
+        if ( $.trim($("#lead_city").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        a = $("#state").find(".field_with_errors")
+        if ( $.trim($("#lead_state").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        a = $("#zip").find(".field_with_errors")
+        if ( $.trim($("#lead_zip").val()) == "" ){
+          errors = true
+          a.text("can't be blank")
+        } else {
+          a.text("")
+        }
+
+        if (errors)
+          event.preventDefault()
+
+      })
+    }
+
+    function set_form_values(qs){
+      $("#lead_first_name").val( qs["first_name"] )
+      $("#lead_last_name").val( qs["last_name"] )
+      $("#lead_phone").val( qs["phone"] )
+      $("#lead_email").val( qs["email"] )
+      $("#lead_street").val( qs["street"] )
+      $("#lead_city").val( qs["city"] )
+      $("#lead_state").val( qs["state"] )
+      $("#lead_zip").val( qs["zip"] )
+    }
+
+    function set_form_errors(qs){
+      fields = ["first_name","last_name","phone","email","street","city","state","zip"]
+      for (var i=0; i < fields.length; i++) {
+        if (qs["error["+fields[i]+"]"]){
+          $("#"+fields[i]).find(".field_with_errors").append( qs["error["+fields[i]+"]"].replace(new RegExp(/\+/g), " " ) )
+        }
+      };
+
+    }
+
+
+
+    window.addEventListener ? window.addEventListener("load",snapleads_load,false) : window.attachEvent && window.attachEvent("onload",snapleads_load);
+  </script>
